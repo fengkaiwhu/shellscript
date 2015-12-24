@@ -1,3 +1,0 @@
-# ip passwd username sshport
-202.114.66.10 logosun!@#$ bbs 3227
-# 202.114.96.30 logosun!@#$# bbs 8000
