@@ -20,11 +20,13 @@ ip="20.14.6.0"
 pass='lo#$#' #建议提前设置ssh无密码登录
 port="8"
 
-# TODO
-type mysqldump &> /dev/null || { echo "mysqldump is not installed!";exit 1; }
-type ssh &> /dev/null || { echo "mysqldump is not installed!";exit 1; }
+# TODO Checking infomation
 
-# Checking infomation
+echo -n "Checking command mysqldump......"
+type mysqldump &> /dev/null && echo "Pass" || { echo "mysqldump is not installed!";exit 1; }
+echo -n "Checking command ssh......"
+type ssh &> /dev/null && echo "Pass" || { echo "ssh is not installed!";exit 1; }
+
 echo -n "Checking Local Mysql info......"
 mysql -u$LDB_USER -p$LDB_PASS -e "" &> /dev/null && echo "Pass" || { echo "Bad Local mysql username or passwd! Exit!"; exit 1; }
 
@@ -39,6 +41,7 @@ ssh -p $port $user@$ip date &> /dev/null && echo "Pass" || { echo "Bad Remote Se
 echo -n "Checking Remote Mysql info......"
 ssh -p $port $user@$ip "mysql -u$RDB_USER -p$RDB_PASS -e ' '" &> /dev/null && echo "Pass" || { echo "Bad Remote mysql username or passwd! EXit!";exit 1; }
 
+# TODO Migration 
 for database in $DB
 do
     echo "***************************************"

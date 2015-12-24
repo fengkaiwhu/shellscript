@@ -14,12 +14,13 @@ DB="enNercms db2 df4"
 BCK_DIR="/tmp/dbbackup"
 DATE=`date +%F`
 
-# TODO
+# TODO Checking infomation
+echo -n "Checking command mysqldump......"
+type mysqldump &> /dev/null && echo "Pass" || { echo "mysqldump is not installed!";exit 1; }
 
-type mysqldump &> /dev/null || { echo "mysqldump is not installed!";exit 1; }
-type gzip &> /dev/null || { echo "gzip is not installed!";exit 1; }
+echo -n "Checking command gzip......"
+type gzip &> /dev/null && echo "Pass" || { echo "gzip is not installed!";exit 1; }
 
-# Checking infomation
 echo -n "Checking Local Mysql info......"
 mysql -u$LDB_USER -p$LDB_PASS -e "" &> /dev/null && echo "Pass" || { echo "Bad mysql username or passwd! Exit!"; exit 1; }
 
@@ -32,6 +33,7 @@ done
 echo -n "Creating Backup dir......"
 mkdir -p $BCK_DIR/$DATE/ &> /dev/null && echo "Pass" || { echo "mkdir \"$BCK_DIR/$DATE/\" failed!"; exit 1; }
 
+# TODO backup 
 for database in $DB
 do
     echo "***************************************"
