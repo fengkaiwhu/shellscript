@@ -1,4 +1,2 @@
 # ip passwd username sshport
-202.114.66.10 logosun!@#$ bbs 3227
-202.114.96.30 logosun!@#$# bbs 8000
-121.40.73.62 Whunercms123 root 22
+202.11.6.10 l#$ bs 327
