@@ -1,5 +1,6 @@
 #!/bin/bash
-# function: 备份本地数据库 
+# function: 备份本地数据库,保存在本地目录
+#           完全备份
 # author: kfeng
 # date: 20151223
 
