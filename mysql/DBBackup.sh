@@ -39,7 +39,8 @@ for database in $DB
 do
     echo "***************************************"
     echo "DB \"$database\" being backed up......"
-    # --no-data 只导出数据表结构而不导出数据
+    # --no-data 只导出数据表结构而不导出数据,
+    # 如果后续需要进行增量备份,需要 --flush-logs 选项以生成新的二进制文件
     mysqldump --opt --force --log-error=error.log \
         -u$LDB_USER -p$LDB_PASS $database | \
         gzip > $BCK_DIR/$DATE/$database.gz
