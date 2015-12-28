@@ -8,7 +8,9 @@ mysql--mysql备份与迁移
 + DBMigration.sh--数据库的在线迁移
 + FullBackup.sh--数据库的完全备份
 + IncreBackup.sh--数据库的增量备份
+
 webserver--服务器启动/暂停/重启脚本
+
 dev--开发脚本
 + rsync.sh--本地目录同步至远程服务器
 
